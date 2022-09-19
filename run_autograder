@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+if [ -d "/autograder/" ]; then
+	export NODE_ENV=prod
+	SOURCE_DIR=/autograder/source
+
+    echo "[GS] Running on Gradescope container, using Gradescope config"
+else
+	export NODE_ENV=dev
+	SOURCE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+    echo "[GS] Running on dev env, using local config"
+fi
+
+# run the node script
+cd $SOURCE_DIR
+
+npm i
+node .

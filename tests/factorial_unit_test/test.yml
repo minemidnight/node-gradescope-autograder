@@ -1,0 +1,14 @@
+name: factorial unit test # test name
+
+max_score: 10
+
+visibility: visible
+# visibility of test : https://gradescope-autograders.readthedocs.io/en/latest/specs/
+# hidden, after_due_date, after_published, or visible (default)
+
+type: unit
+# type of test
+# bootstrap (must run before all others) - useful for making sure code compiles
+# unit - run c code to test other c code
+# io - run c code and accept input, compare outputs
+# script - run a script (similar to bootstrap but can have many)

@@ -1,0 +1,6 @@
+tests_directory: ./tests
+
+submission_limit: -1
+
+required_files:
+  - factorial.c
