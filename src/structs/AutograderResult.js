@@ -1,7 +1,8 @@
-import TestResult from "./TestResult.js";
+import Test from "./Test.js";
+import logger from "../logger.js";
+
 import fs from "node:fs/promises";
 
-import logger from "../logger.js";
 
 class AutograderResult {
 	#file;
@@ -23,11 +24,11 @@ class AutograderResult {
 	}
 
 	addTest(test) {
-		if(!(test instanceof TestResult)) {
+		if(!(test instanceof Test)) {
 			throw new TypeError("Result#addTest(Test) must be called with an instance of the Test class");
 		}
 
-		this.#data.tests.push(test.getJSON());
+		this.#data.tests.push(test.result.getJSON());
 	}
 
 	async write() {

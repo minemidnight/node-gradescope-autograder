@@ -1,3 +1,5 @@
-gcc test.c -o test -include $SUBMISSION_DIR/factorial.c
+set -e
 
-./test
+gcc $TEST_DIR/test.c -o $TEST_DIR/test -include factorial.c factorial.h
+
+$TEST_DIR/test

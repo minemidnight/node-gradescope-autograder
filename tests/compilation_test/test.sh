@@ -1,4 +1,5 @@
-cp Makefile $SUBMISSION_DIR
+set -e
 
-cd $SUBMISSION_DIR
+cp $TEST_DIR/Makefile .
+
 make

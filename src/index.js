@@ -30,12 +30,54 @@ async function init() {
 	resultsFile.pathname = path.join(resultsFile.pathname, envConfig.output_file);
 
 	const result = new AutograderResult(resultsFile);
+	let okay = true;
 
-	await verifySubmittedFiles();
+	try {
+		await verifySubmittedFiles();
+	} catch(err) {
+		result.setOutput(err.message);
+		result.setOverallScore(0);
+
+		logger.error("Failed to find all required files", err);
+
+		okay = false;
+	}
 
 	const tests = await loadTests();
 
-	logger.debug("%O", tests);
+	if(okay && tests.bootstrap) {
+		try {
+			await tests.bootstrap.run();
+
+			result.addTest(tests.bootstrap);
+		} catch(err) {
+			result.setOutput(err.message);
+			result.setOverallScore(0);
+
+			logger.error("Failed to bootstrap submission", err);
+			okay = false;
+		}
+	}
+
+	if(okay) {
+		for(const ioTest of tests.io) {
+			await ioTest.run();
+
+			result.addTest(ioTest);
+		}
+
+		for(const unitTest of tests.unit) {
+			await unitTest.run();
+
+			result.addTest(unitTest);
+		}
+
+		for(const scriptTest of tests.script) {
+			await scriptTest.run();
+
+			result.addTest(scriptTest);
+		}
+	}
 
 	await result.write();
 }

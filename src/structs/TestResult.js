@@ -9,6 +9,10 @@ class TestResult {
 		this.#data.score = score;
 	}
 
+	getMaxScore() {
+		return this.#data.maxScore;
+	}
+
 	setMaxScore(maxScore) {
 		this.#data.maxScore = maxScore;
 	}

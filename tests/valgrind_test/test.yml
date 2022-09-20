@@ -12,3 +12,5 @@ type: script
 # unit - run c code to test other c code
 # io - run c code and accept input, compare outputs
 # script - run a script (similar to bootstrap but can have many)
+
+timeout: 60 # timeout in seconds, optional (defaults to 30)

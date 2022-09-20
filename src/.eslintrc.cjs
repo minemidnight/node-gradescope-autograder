@@ -180,7 +180,6 @@ module.exports = {
 				}
 			}
 		],
-		"lines-between-class-members": ["error", "always"],
 		"max-statements-per-line": ["error", { max: 1 }],
 		"multiline-ternary": ["error", "always-multiline"],
 		"new-parens": ["error", "always"],

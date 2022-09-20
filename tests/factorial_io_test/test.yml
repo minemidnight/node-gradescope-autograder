@@ -13,7 +13,10 @@ type: io
 # io - run c code and accept input, compare outputs
 # script - run a script (similar to bootstrap but can have many)
 
-io_check: strict
+io_check: flexible
 # how to check io output
 # strict - outputs must be EXACTLY the same
 # flexible - each line can have whitespace, but lines must be in order
+
+display_diff: true
+# should diff between expected and actual output be displayed?
