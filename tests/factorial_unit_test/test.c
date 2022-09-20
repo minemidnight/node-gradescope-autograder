@@ -4,9 +4,9 @@
 int main() {
 	int res = factorial(5);
 
-	printf("factorial(5) should be 125\n");
-	if(res != 125) {
-		fprintf(stderr, "%d != %d\n", res, 125);
+	printf("factorial(5) should be 120\n");
+	if(res != 120) {
+		fprintf(stderr, "%d != %d\n", res, 120);
 
 		return 1;
 	}
