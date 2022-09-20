@@ -10,11 +10,12 @@ class TestResult {
 	}
 
 	getMaxScore() {
-		return this.#data.maxScore;
+		return this.#data.max_score;
 	}
 
 	setMaxScore(maxScore) {
-		this.#data.maxScore = maxScore;
+		// eslint-disable-next-line camelcase
+		this.#data.max_score = maxScore;
 	}
 
 	setVisibility(visiblity) {

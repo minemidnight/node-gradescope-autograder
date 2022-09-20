@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 
+cd /autograder/source
+
 export NODE_VERSION=18.7.0
 
 export NVM_DIR=/usr/local/nvm
 
 # Install nodejs to run autograder
 
-curl --silent -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+mkdir $NVM_DIR
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 source $NVM_DIR/nvm.sh \
 	&& nvm install $NODE_VERSION \
@@ -18,6 +21,8 @@ export PATH=$NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
 node -v
 npm -v
+
+npm i
 
 # Install valgrind memory tool
 apt-get install valgrind -y

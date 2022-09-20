@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+export NVM_DIR=/usr/local/nvm
+
+source $NVM_DIR/nvm.sh
+
+export NODE_PATH=$NVM_DIR/v$NODE_VERSION/lib/node_modules
+export PATH=$NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
+
 if [ -d "/autograder/" ]; then
 	export NODE_ENV=prod
 	SOURCE_DIR=/autograder/source
@@ -15,5 +22,4 @@ fi
 # run the node script
 cd $SOURCE_DIR
 
-npm i
 node .
