@@ -53,6 +53,7 @@ class IOTest extends Test {
 
 			this.result.setOutput(output);
 			this.result.setFailed();
+			this.result.setScore(0);
 			return;
 		}
 
